@@ -4,7 +4,7 @@ function Navbar() {
         style={{
           height: "5rem",
           width: "100%",
-          backgroundColor: "#ffedd1",
+          backgroundColor: "transparent",
           display: "flex",
           alignItems: "center",
           padding: "0 2rem",
