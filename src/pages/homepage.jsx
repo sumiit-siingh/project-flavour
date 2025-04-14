@@ -1,3 +1,4 @@
+import React from "react";
 function Homepage() {
   return (
     <div
@@ -244,7 +245,8 @@ function Homepage() {
                 position: "absolute",
                 right: "16%",
                 top: "52%",
-                transform: "translateY(-50%)",
+                transform: "translateY(-35%)",
+                scale: "1.5",
               }}
             >
               <img src="https://res.cloudinary.com/dpwqggym0/image/upload/v1744544113/salad-from-tomatoes-cucumber-red-onions-lettuce-leaves-healthy-summer-vitamin-menu-vegan-vegetable-food-vegetarian-dinner-table-top-view-flat-lay-removebg-preview_wxrxmd.png"></img>
