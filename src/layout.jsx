@@ -5,9 +5,9 @@ import {Outlet} from "react-router-dom";
 
 export default function Layout() {
   return (
-    <main>
+    <div>
       <Navbar/>
-      <Outlet />
-    </main>
+      <Outlet/>
+    </div>
   );
 }

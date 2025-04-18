@@ -1,11 +1,13 @@
+
 import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom'
 const Navbar = () => {
   const navigate = useNavigate()
   return (
     <div
+    className='sticky top-0 '
       style={{
-        height: "7rem",
+        height: "4rem",
         width: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.0)",
         display: "flex",
@@ -14,7 +16,6 @@ const Navbar = () => {
         fontFamily: "Poppins",
         justifyContent: "space-between",
         zIndex: "1000",
-        position: "fixed",
         top: "0",
         left: "0",
       }}
