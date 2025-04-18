@@ -1,6 +1,7 @@
 import React from 'react';
-
-function Navbar() {
+import { Navigate, useNavigate } from 'react-router-dom'
+const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <div
       style={{
@@ -41,7 +42,7 @@ function Navbar() {
       >
         <div style={{ cursor: "pointer" }}>Home</div>
         <div style={{ cursor: "pointer" }}>Menu</div>
-        <div style={{ cursor: "pointer" }}>Services</div>
+        <div style={{ cursor: "pointer" }} onClick={()=>navigate('/services')}>Services</div>
         <div style={{ cursor: "pointer" }}>Contact</div>
       </div>
 
@@ -61,8 +62,8 @@ function Navbar() {
             cursor: "pointer",
             fontWeight: "500",
           }}
-        >
-          Sign in
+          onClick={()=>navigate('/signup')}>
+          Sign up
         </button>
         <button
           style={{
@@ -74,7 +75,7 @@ function Navbar() {
             cursor: "pointer",
             fontWeight: "500",
           }}
-        >
+        onClick={()=>navigate('/login')}>
           Login
         </button>
       </div>
