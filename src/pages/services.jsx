@@ -2,7 +2,8 @@ import React from 'react';
 
 function Services() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-700 via-gray-900 to-black px-4">
+        <div className="min-h-screen overflow-hidden flex items-center justify-center bg-gradient-to-r from-gray-700 via-gray-900 to-black px-4 relative" >
+           <div className=''><img className='' src='https://res.cloudinary.com/dq829orud/image/upload/v1745063312/360_F_1162789811_UgSE67nK5tjholzHJKH2ZV15v8jlCYHw-removebg-preview_oa0exf.png'/></div> 
             <div className="grid  sm:grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* === Card Component === */}
                 {[
@@ -42,6 +43,7 @@ function Services() {
                     </div>
                 ))}
             </div>
+            <div></div>
         </div>
     );
 }

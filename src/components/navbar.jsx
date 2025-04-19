@@ -41,8 +41,8 @@ const Navbar = () => {
           marginRight: "32rem",
         }}
       >
-        <div style={{ cursor: "pointer" }}>Home</div>
-        <div style={{ cursor: "pointer" }}>Menu</div>
+        <div style={{ cursor: "pointer" }}onClick={()=>navigate('/')}>Home</div>
+        <div style={{ cursor: "pointer" }} onClick={()=>navigate('/menu')}>Menu</div>
         <div style={{ cursor: "pointer" }} onClick={()=>navigate('/services')}>Services</div>
         <div style={{ cursor: "pointer" }}>Contact</div>
       </div>
