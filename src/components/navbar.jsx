@@ -23,9 +23,9 @@ import React, { useState } from 'react';
         <div className="max-w-[40%] flex text-[15px] gap-16 justify-start">
 
           <div className="cursor-pointer  transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-b-2">Home</div>
-          <div className="cursor-pointer  transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 hover:border-b-2">Menu</div>
-          <div className="cursor-pointer  transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 hover:border-b-2">Services</div>
-          <div className="cursor-pointer  transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 hover:border-b-2">Contact</div>
+          <div className="cursor-pointer  transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-b-2">Menu</div>
+          <div className="cursor-pointer  transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-b-2">Services</div>
+          <div className="cursor-pointer  transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-b-2">Contact</div>
         </div>
 
     

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Homepage() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(7);
   const increment = () => {
     setCount((x) => x + 1);
   };
