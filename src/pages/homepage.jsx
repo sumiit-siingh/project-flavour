@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Homepage() {
-  
+
   const [count, setCount] = useState(7);
   const increment = () => {
     setCount((x) => x + 1);
@@ -124,8 +124,21 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className="h-[600px] w-[100%] bg-black">
-        <div className="">Our Offerings</div>
+      <div className="h-[600px] w-[100%] bg-red-400">
+        <div className="text-amber-600 font-bold text-shadow-red-400 justify-center text-8xl ">Our Offerings</div>
+        
+              
+      </div>
+      <div className="h-[600px] w-[100%] bg-red-500">
+        <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Our Services</div>
+              
+      </div>
+      <div className="h-[700px] w-[100%] bg-red-600">
+        <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Our something</div>
+              
+      </div>
+      <div className="h-[800px] w-[100%] bg-red-700">
+        <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Contact Us</div>
               
       </div>
     </div>
