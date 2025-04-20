@@ -1,134 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
+
 function Homepage() {
+
+  const [count, setCount] = useState(7);
+  const increment = () => {
+    setCount((x) => x + 1);
+  };
+  const decrement = () => {
+    setCount((x) => (x > 0 ? x - 1 : 0));
+  };
+  const foodItems = [
+    { name: "Burger", price: "$3.25", color: "bg-green-100" },
+    { name: "Cake", price: "$2.25", color: "bg-pink-100" },
+    { name: "Salad", price: "$5.25", color: "bg-orange-100" },
+    { name: "Pizza", price: "$6.75", color: "bg-yellow-100" },
+    { name: "Fries", price: "$2.75", color: "bg-blue-100" },
+  ];
+
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleCount = 3;
+
+  const handlePrev = () => {
+    setStartIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setStartIndex((prev) =>
+      Math.min(prev + 1, foodItems.length - visibleCount)
+    );
+  };
+
+  const visibleItems = foodItems.slice(startIndex, startIndex + visibleCount);
+
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        width: "100%",
-        backgroundColor: "#f5f5f5",
-        fontFamily: "Poppins, sans-serif",
-        overflow: "hidden",
-        position: "relative",
-        paddingTop: "7rem",
-      }}
-    >
-      <div
-        style={{
-          width: "90%",
-          margin: "0 auto",
-          paddingTop: "3rem",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <div
-          style={{
-            flex: "1",
-            paddingRight: "2rem",
-            maxWidth: "50%",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "4rem",
-              fontWeight: "bold",
-              lineHeight: "1.1",
-              marginBottom: "0.5rem",
-            }}
-          >
+    <div className="min-h-screen w-full bg-gray-100 font-poppins overflow-hidden pt-24 select-none">
+      <div className="w-[90%] mx-auto pt-12 grid grid-cols-1 lg:grid-cols-2">
+        <div>
+          <div className="text-6xl md:text-8xl font-bold leading-tight mb-2">
             Order your
           </div>
-          <div
-            style={{
-              fontSize: "4rem",
-              fontWeight: "normal",
-              marginBottom: "1.5rem",
-            }}
-          >
-            favourite Foods
+          <div className="text-6xl md:text-[4rem] font-normal mb-6">
+            favourite foods
           </div>
 
-          <div
-            style={{
-              fontSize: "1rem",
-              color: "#777",
-              maxWidth: "450px",
-              marginBottom: "2.5rem",
-            }}
-          >
+          <div className="text-base text-gray-600 max-w-md mb-10">
             Fresh and tasty seafood curry sit amet, consectetur Curabitur
             accumsan auctor pulvinar proin sit amet.
           </div>
 
-          <div
-            style={{
-              marginBottom: "3rem",
-            }}
-          >
-            <div
-              style={{
-                fontSize: "1.8rem",
-                fontWeight: "300",
-                marginBottom: "1.5rem",
-              }}
-            >
-              Total order : <span style={{ fontWeight: "bold" }}>$24.30</span>
+          <div className="mb-12">
+            <div className="text-2xl font-light mb-6">
+              Total order : <span className="font-bold">$24.30</span>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1.5rem",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  border: "1px solid #ddd",
-                  borderRadius: "25px",
-                  padding: "0.5rem 1rem",
-                }}
-              >
-                <span style={{ color: "#aaa", cursor: "pointer" }}>▼</span>
+            <div className="flex items-center gap-6 flex-wrap select-none">
+              <div className="flex items-center border border-gray-300 rounded-full px-4 py-2">
                 <span
-                  style={{
-                    margin: "0 1rem",
-                    fontSize: "1.2rem",
-                    fontWeight: "500",
-                  }}
+                  onClick={decrement}
+                  className="text-gray-400 cursor-pointer"
                 >
-                  2
+                  ▼
                 </span>
-                <span style={{ color: "#aaa", cursor: "pointer" }}>▲</span>
+                <span className="mx-4 text-xl font-medium">{count}</span>
+                <span
+                  onClick={increment}
+                  className="text-gray-400 cursor-pointer"
+                >
+                  ▲
+                </span>
               </div>
 
-              <div
-                style={{
-                  backgroundColor: "#222",
-                  color: "white",
-                  padding: "0.8rem 2rem",
-                  borderRadius: "30px",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <span
-                  style={{
-                    backgroundColor: "#ffd154",
-                    color: "#222",
-                    width: "1.5rem",
-                    height: "1.5rem",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "0.8rem",
-                  }}
-                >
+              <div className="bg-gray-900 text-white px-8 py-3 rounded-full cursor-pointer flex items-center gap-2">
+                <span className="bg-yellow-300 text-gray-900 w-6 h-6 rounded-full flex items-center justify-center text-xs">
                   🛒
                 </span>
                 Buy Now
@@ -136,123 +79,67 @@ function Homepage() {
             </div>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "1rem",
-              alignItems: "center",
-            }}
-          >
+          <div className="flex gap-4 items-center flex-wrap">
             <div
-              style={{
-                width: "2.5rem",
-                height: "2.5rem",
-                borderRadius: "50%",
-                backgroundColor: "white",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-              }}
+              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer"
+              onClick={handlePrev}
             >
               ◀
             </div>
 
-            <div
-              style={{
-                backgroundColor: "#ebffd4",
-                padding: "1rem 1.5rem",
-                borderRadius: "30px",
-                textAlign: "center",
-              }}
-            >
-              <div>Burger</div>
-              <div style={{ fontWeight: "bold" }}>$3.25</div>
-            </div>
-            <div
-              style={{
-                backgroundColor: "#ffe6f0",
-                padding: "1rem 1.5rem",
-                borderRadius: "30px",
-                textAlign: "center",
-              }}
-            >
-              <div>Cake</div>
-              <div style={{ fontWeight: "bold" }}>$2.25</div>
-            </div>
-            <div
-              style={{
-                backgroundColor: "#fff1e0",
-                padding: "1rem 1.5rem",
-                borderRadius: "30px",
-                textAlign: "center",
-              }}
-            >
-              <div>Salad</div>
-              <div style={{ fontWeight: "bold" }}>$5.25</div>
+            <div className="flex gap-4 transition-all duration-300 ease-in-out">
+              {visibleItems.map((item, index) => (
+                <div
+                  key={index}
+                  className={`${item.color} px-6 py-4 rounded-full text-center min-w-[120px]`}
+                >
+                  <div>{item.name}</div>
+                  <div className="font-bold">{item.price}</div>
+                </div>
+              ))}
             </div>
 
             <div
-              style={{
-                width: "2.5rem",
-                height: "2.5rem",
-                borderRadius: "50%",
-                backgroundColor: "white",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-              }}
+              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer"
+              onClick={handleNext}
             >
               ▶
             </div>
           </div>
         </div>
 
-        <div
-          style={{
-            flex: "1",
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+        <div className="relative flex justify-center overflow-visible">
+          <img
+            src="https://res.cloudinary.com/dpwqggym0/image/upload/v1744543029/istockphoto-2074939734-612x612-removebg-preview_zxqsdx.png"
+            alt="background"
+            className="absolute right-[-50%] top scale-210 z-0 opacity-100  "
+          />
+
+          <div className="z-1 flex items-center justify-center">
             <img
-              src="https://res.cloudinary.com/dpwqggym0/image/upload/v1744543029/istockphoto-2074939734-612x612-removebg-preview_zxqsdx.png"
-              alt="Food"
-              style={{
-                position: "absolute",
-                right: "-50%",
-                top: "52%",
-                transform: "translateY(-50%)",
-                height: "180%",
-                opacity: "1",
-                zIndex: "0",
-              }}
+              src="https://res.cloudinary.com/dpwqggym0/image/upload/v1745103077/erasebg-transformed_mwsgcy.png"
+              alt="Salad"
+              className="h-[600px]"
             />
-            <div
-              style={{
-                position: "absolute",
-                right: "16%",
-                top: "52%",
-                transform: "translateY(-35%)",
-                scale: "1.5",
-              }}
-            >
-              <img src="https://res.cloudinary.com/dpwqggym0/image/upload/v1744544113/salad-from-tomatoes-cucumber-red-onions-lettuce-leaves-healthy-summer-vitamin-menu-vegan-vegetable-food-vegetarian-dinner-table-top-view-flat-lay-removebg-preview_wxrxmd.png"></img>
-            </div>
           </div>
         </div>
+      </div>
+      <div className="h-[600px] w-[100%] bg-red-400">
+        <div className="text-amber-600 font-bold text-shadow-red-400 justify-center text-8xl ">Our Offerings</div>
+        
+              
+      </div>
+      <div className="h-[600px] w-[100%] bg-red-500">
+        <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Our Services</div>
+              
+      </div>
+      <div className="h-[700px] w-[100%] bg-red-600">
+        <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Our something</div>
+              
+      </div>
+      <div className="h-[800px] w-[100%] bg-red-700">
+        <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Contact Us</div>
+              
       </div>
     </div>
   );
