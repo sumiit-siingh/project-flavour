@@ -23,13 +23,13 @@ function Services() {
                     <div key={index} className="relative w-full max-w-sm mx-auto border-1 border-amber-400 rounded-xl overflow-hidden  translate-y-1 hover:shadow-2xl hover:scale-110 transition-transform ">
                         {/* Text Positioned Above Image */}
                         <div className="absolute top-4 left-0 w-full text-center text-white">
-                            <a className="font-extrabold text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl drop-shadow-md/70 drop-shadow-white text-[#ffcc70] block ">
+                            <a className="font-extrabold text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl drop-shadow-md/70 drop-shadow-white text-[#ffcc70] block ">
                                 {item.lines[0]}
                             </a>
-                            <a className="font-extrabold text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-md/70 drop-shadow-white">
+                            <a className="font-extrabold text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-md/70 drop-shadow-white">
                                 {item.lines[1]}
                             </a>
-                            <a className="font-extrabold text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-lg/50 drop-shadow-white">
+                            <a className="font-extrabold text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-lg/50 drop-shadow-white">
                                 {item.lines[2]}
                             </a>
                         </div>
@@ -43,7 +43,6 @@ function Services() {
                     </div>
                 ))}
             </div>
-            <div></div>
         </div>
     );
 }

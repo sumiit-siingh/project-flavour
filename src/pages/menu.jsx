@@ -1,18 +1,19 @@
 import React from "react";
+import { CiStar } from "react-icons/ci";
 
 function Menu() {
   return (
-    <div className="min-h-screen bg-red-200 p-3">
+    <div className="min-h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-black px-4">
       <div className=" pt-10 ">
         {/* White Box with Title and Images */}
-        <div className="bg-white mt-10 p-4">
-          <div className="text-lg font-semibold mb-4">Hey, What's your Food mood?</div>
+        <div className=" mt-10 p-4">
+          <div className="text-lg font-semibold text-amber-500 mb-4 sm:ml-5 xl:ml-11 text-outline">Hey, What's your Food mood?</div>
 
           <div className="overflow-x-auto">
-            <div className="flex justify-around">
+            <div className="flex justify-around ">
               {[
                 {
-                  src: "https://res.cloudinary.com/dq829orud/image/upload/v1745002098/ai-generated-top-view-burger-png_rgdoob.webp",
+                  src: "https://res.cloudinary.com/dq829orud/image/upload/v1744914196/double-cheeseburger_hyjkss.png",
                   lines: ["Burger"],
                 },
                 {
@@ -50,14 +51,14 @@ function Menu() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center min-w-[100px] max-w-[100px] border-none"
+                  className="flex flex-col items-center min-w-[100px] max-w-[100px]  "
                 >
                   <img
                     src={item.src}
                     alt={item.lines}
-                    className="w-20 h-20 object-cover rounded-full mt-4 hover:drop-shadow-xl hover:scale-110 transition-transform duration-300"
+                    className="w-20 h-20 object-cover rounded-full mt-4  hover:drop-shadow-md hover:drop-shadow-amber-500  hover:scale-130 transition-transform duration-400"
                   />
-                  <p className="mt-2 text-sm text-center font-medium">{item.lines}</p>
+                  <p className="mt-2 text-sm text-center text-outline font-medium text-[#f2d49c] ">{item.lines}</p>
                 </div>
               ))}
             </div>
@@ -66,8 +67,85 @@ function Menu() {
       </div>
 
       {/* Below the image and mood text */}
-      <div className="bg-white sm:ml-5 md:ml-7 xl:ml-10 mt-10 font-semibold text-xl">
+      <div className=" sm:ml-5 md:ml-7 xl:ml-14 mt-10 font-semibold text-xl text-amber-500 text-outline">
         Top discounts for you
+      </div>
+      <div className=" ">
+        <div className="flex flex-wrap justify-around mt-10 ">
+          {[
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127502/IMG-20250420-WA0016_ae1kp6.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"],
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127502/IMG-20250420-WA0015_nqc8fu.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3 |", "  15-20 mins", "Snacks", "Indirapuram"],
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127500/IMG-20250420-WA0005_axilu7.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3 |", "15-20 mins", "Snacks", "Indirapuram"],
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127501/IMG-20250420-WA0014_yjjslc.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127500/IMG-20250420-WA0007_rv8q84.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127500/IMG-20250420-WA0011_fx7ws2.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127499/IMG-20250420-WA0006_yxlhwm.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127499/IMG-20250420-WA0010_rspj8d.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127498/IMG-20250420-WA0003_fiue3x.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127498/IMG-20250420-WA0004_ovmlfw.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127498/IMG-20250420-WA0009_wktqhs.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127498/IMG-20250420-WA0002_d7arg2.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127497/IMG-20250420-WA0001_kzsmjd.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="text-[#f2d49c] mb-10  xl:text-[15px] text-xs ">
+              <img className="w-30 h-20 sm:w-[10rem] sm:h-[7rem] xl:h-[10rem] xl:w-[15rem] lg:h-[10rem] lg:w-[15rem] rounded-full object-cover hover:border-1 cursor-pointer " src={item.src}
+                alt={item.lines} />
+                <div className=" cursor-pointer rounded-full -translate-y-4 "> <a className="block -translate-y-9 text-white font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl ">{item.lines[0]}</a>
+                <div className="flex items-center flex-col"><a className="font-bold">{item.lines[1]}</a>
+              <div className="flex"><a className="flex  "><CiStar className=" text-green-300  " />{item.lines[2]}</a>
+              <a className="">{item.lines[3]}</a></div>
+              <a className=" ">{item.lines[4]}</a>
+              <a className=" ">{item.lines[5]}</a></div>
+              </div>
+             
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

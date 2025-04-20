@@ -55,10 +55,10 @@ function Navbar() {
 
     
       <div className="flex gap-4">
-        <button className="text-black px-6 py-2 bg-[#f2d49c] border-none rounded-full cursor-pointer font-medium overflow-hidden hover:bg-amber-400 hover:scale-105">
+        <button className="text-white px-6 py-2 bg-[#e56023]  rounded-full cursor-pointer font-medium overflow-hidden hover:bg-[#66e7f0] text-outline hover:scale-105 border-1 border-black">
           Sign in
         </button>
-        <button className="px-6 py-2 bg-[#f2d49c] border-none rounded-full cursor-pointer font-medium hover:bg-amber-400 transition delay-75 duration-200 ease-out hover:scale-105">
+        <button className="px-6 text-white text-outline py-2 bg-black border-1 border-black rounded-full cursor-pointer font-medium hover:bg-[#66e7f0] transition delay-75 duration-200 ease-out hover:scale-105">
           Login
         </button>
       </div>
