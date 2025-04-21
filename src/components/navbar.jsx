@@ -48,7 +48,7 @@ const Navbar=()=> {
         {["Home", "Menu", "Services", "Contact"].map((item, i) => (
           <div
             key={i}
-            className="cursor-pointer transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-b-2"
+            className="cursor-pointer text-white text-outline transition delay-0 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:border-b-2"
           onClick={()=> navigate(`/${item.toLowerCase()}`)}>
             {item}
           </div>

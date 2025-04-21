@@ -1,9 +1,23 @@
 import React from "react";
 import { CiStar } from "react-icons/ci";
-import { motion } from "framer-motion";
+import { useAnimation } from "framer-motion";
+
+import { motion } from "framer-motion";  // For animation
+import { useInView } from "react-intersection-observer";  // For scroll detection
+import { useEffect, useState } from "react";  // For managing effects and states
+
 
 function Menu() {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true });
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+  
   return (
+    
     <div className="min-h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-black px-4">
       <div className=" pt-10 ">
         {/* White Box with Title and Images */}
@@ -130,43 +144,68 @@ function Menu() {
               src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
               lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
             },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="text-[#f2d49c] mb-10 xl:text-[15px] text-xs overflow-hidden"
-            >
-              <div className="w-[15rem] h-[10rem] rounded-full overflow-hidden mx-auto">
-                <motion.img
-                  className="w-full h-full object-cover cursor-pointer"
-                  src={item.src}
-                  alt={item.lines}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </div>
-
-              <div className="cursor-pointer rounded-full -translate-y-4">
-                <a className="block -translate-y-9 text-white font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl">
-                  {item.lines[0]}
-                </a>
-
-                <div className="flex items-center flex-col">
-                  <a className="font-bold">{item.lines[1]}</a>
-
-                  <div className="flex">
-                    <a className="flex items-center">
-                      <CiStar className="text-green-300" />
-                      {item.lines[2]}
-                    </a>
-                    <a className="ml-2">{item.lines[3]}</a>
-                  </div>
-
-                  <a>{item.lines[4]}</a>
-                  <a>{item.lines[5]}</a>
+          ].map((item, index) => {
+            const controls = useAnimation();
+            const [ref, inView] = useInView({ triggerOnce: true });
+          
+            useEffect(() => {
+              if (inView) {
+                controls.start("visible");
+              }
+            }, [controls, inView]);
+          
+            const variants = {
+              hidden: { opacity: 0, y: 50 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  delay: index * 0.07,  // Stagger the animation
+                },
+              },
+            };
+          
+            return (
+              <motion.div
+                ref={ref}
+                key={index}
+                initial="hidden"
+                animate={controls}
+                variants={variants}
+                className="text-[#f2d49c] mb-10 xl:text-[15px] text-xs overflow-hidden"
+              >
+                <div className="w-[15rem] h-[10rem] rounded-full overflow-hidden mx-auto">
+                  <motion.img
+                    className="w-full h-full object-cover cursor-pointer"
+                    src={item.src}
+                    alt={item.lines}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  />
                 </div>
-              </div>
-            </div>
-          ))}
+          
+                <div className="cursor-pointer rounded-full -translate-y-4">
+                  <a className="block -translate-y-9 text-white font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl">
+                    {item.lines[0]}
+                  </a>
+          
+                  <div className="flex items-center flex-col">
+                    <a className="font-bold">{item.lines[1]}</a>
+                    <div className="flex">
+                      <a className="flex items-center">
+                        <CiStar className="text-green-300" />
+                        {item.lines[2]}
+                      </a>
+                      <a className="ml-2">{item.lines[3]}</a>
+                    </div>
+                    <a>{item.lines[4]}</a>
+                    <a>{item.lines[5]}</a>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>
