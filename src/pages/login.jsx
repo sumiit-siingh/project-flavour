@@ -6,6 +6,9 @@ import { FaGithub } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 const Login = ()=> {
       const navigate = useNavigate()
+      function getFocused(){
+        document.getElementById("email").focus()
+      }
     return (
         <div className="relative w-full h-screen backdrop- bg-black flex justify-center items-center ">
             <img
@@ -17,7 +20,7 @@ const Login = ()=> {
                 <div className='flex flex-col gap-y-3 bg-[#151515] absolute top-[60px] left-[60px] h-[75%] max-h-[25rem] w-[80%] max-w-[16rem] rounded-lg'>
                     <div className='text-center text-lg md:text-xl font-bold  translate-y-2 text-amber-500 transition delay-150 duration-300 ease-in-out hover:translate-y-1 hover:scale-110'>Hey, there !</div>
                     <div className=' translate-y-2 text-xs translate-x-3 text-amber-400'>Email</div>
-                   <input className=' h-9 p-2 border-none bg-white  text-xs text-shadow-xs outline-amber-300 ml-3 mr-3 rounded-lg ' placeholder='username@gmail.com' />
+                   <input id='email' className=' h-9 p-2 border-none bg-white  text-xs text-shadow-xs outline-amber-300 ml-3 mr-3 rounded-lg ' placeholder='username@gmail.com' />
                     
                     <div className='text-amber-400 translate-y-2 translate-x-3 text-xs'>Password</div>
                     <div className=" ">
@@ -28,7 +31,7 @@ const Login = ()=> {
                     
                    
                     <div className='text-white text-right  -translate-y-2 -translate-x-2 text-xs cursor-pointer mr-1'>Forgot Password ?</div>
-                    <div className='' onClick={()=>navigate('/')}><div className='bg-amber-500 text-white flex items-center justify-center text-xs font-bold rounded-lg h-8 cursor-pointer mr-3 ml-3 '>Log in</div></div>
+                    <div className='' onCli ck={()=>navigate('/')}><div className='bg-amber-500 text-white flex items-center justify-center text-xs font-bold rounded-lg h-8 cursor-pointer mr-3 ml-3 ' onClick={getFocused}>Log in</div></div>
                     <div className='text-white text-xs text-center translate-y-1'>or Continue with</div>
                     <div className='flex justify-around  translate-y-3 h-7'>
                         <div className='bg-white h-[110%] w-[20%] rounded-4xl flex cursor-pointer items-center justify-center transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-white'><div><FcGoogle className='bg-white  ' /></div></div>

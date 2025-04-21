@@ -1,5 +1,6 @@
 import React from "react";
 import { CiStar } from "react-icons/ci";
+import { motion } from "framer-motion";
 
 function Menu() {
   return (
@@ -132,17 +133,38 @@ function Menu() {
           ].map((item, index) => (
             <div
               key={index}
-              className="text-[#f2d49c] mb-10  xl:text-[15px] text-xs ">
-              <img className="w-30 h-20 sm:w-[10rem] sm:h-[7rem] xl:h-[10rem] xl:w-[15rem] lg:h-[10rem] lg:w-[15rem] rounded-full object-cover hover:border-1 cursor-pointer " src={item.src}
-                alt={item.lines} />
-                <div className=" cursor-pointer rounded-full -translate-y-4 "> <a className="block -translate-y-9 text-white font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl ">{item.lines[0]}</a>
-                <div className="flex items-center flex-col"><a className="font-bold">{item.lines[1]}</a>
-              <div className="flex"><a className="flex  "><CiStar className=" text-green-300  " />{item.lines[2]}</a>
-              <a className="">{item.lines[3]}</a></div>
-              <a className=" ">{item.lines[4]}</a>
-              <a className=" ">{item.lines[5]}</a></div>
+              className="text-[#f2d49c] mb-10 xl:text-[15px] text-xs overflow-hidden"
+            >
+              <div className="w-[15rem] h-[10rem] rounded-full overflow-hidden mx-auto">
+                <motion.img
+                  className="w-full h-full object-cover cursor-pointer"
+                  src={item.src}
+                  alt={item.lines}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                />
               </div>
-             
+
+              <div className="cursor-pointer rounded-full -translate-y-4">
+                <a className="block -translate-y-9 text-white font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl">
+                  {item.lines[0]}
+                </a>
+
+                <div className="flex items-center flex-col">
+                  <a className="font-bold">{item.lines[1]}</a>
+
+                  <div className="flex">
+                    <a className="flex items-center">
+                      <CiStar className="text-green-300" />
+                      {item.lines[2]}
+                    </a>
+                    <a className="ml-2">{item.lines[3]}</a>
+                  </div>
+
+                  <a>{item.lines[4]}</a>
+                  <a>{item.lines[5]}</a>
+                </div>
+              </div>
             </div>
           ))}
         </div>
