@@ -5,36 +5,47 @@ import { HiOutlineMail } from "react-icons/hi";
 import { VscCallOutgoing } from "react-icons/vsc";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FcGoogle } from "react-icons/fc";
+import { SiFacebook } from "react-icons/si";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa6";
 
 function Contact() {
-  const controls = useAnimation();
+  const downloadControls = useAnimation();
+  const [downloadRef, downloadInView] = useInView({ triggerOnce: true });
   const [ref, inView] = useInView({ triggerOnce: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (downloadInView) {
+      downloadControls.start("visible");
+    }
+  }, [downloadInView, downloadControls]);
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
     }
-  }, [controls, inView]);
+  }, [inView, controls]);
 
   const variants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 100 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.2,
-      },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
   return (
-    <div className="h-full flex flex-col bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+    <div className="h-full relative flex flex-col bg-gradient-to-r from-gray-700 via-gray-900 to-black overflow-hidden">
       {/* Top section */}
-      <div className="mt-20 flex w-full text-[15rem] relative items-center justify-center px-4 ">
+      <div className="mt-20 flex w-full text-[15rem] relative items-center justify-center px-4  ">
         <motion.img
           src="https://res.cloudinary.com/dq829orud/image/upload/v1745255111/telephone-laptop-flat-lay-with-workspace-yellow-background_140725-23283_eugykf.jpg"
-          className="h-120 w-full shadow-lg shadow-white rounded-lg"
+          className="h-120 w-full shadow-lg shadow-white rounded-lg bg-white "
           initial={{ y: 400, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -108,7 +119,7 @@ function Contact() {
         className="flex items-center justify-center"
       >
         <div className=" mt-10 text-white">
-          <a className="text-3xl mb-4 text-[#ffcc70]">Frequently asked questions</a>
+          <a className="text-3xl mb-4 text-[#ffcc70] text-outline">Frequently asked questions</a>
 
           {[
             {
@@ -136,21 +147,75 @@ function Contact() {
               key={idx}
               className="p-4 w-full flex flex-col items-center max-w-md  bg-opacity-10 backdrop-blur-sm rounded mb-2"
             >
-              <summary className="cursor-pointer text-lg">{item.q}</summary>
-              <p className="mt-2 text-gray-300">{item.a}</p>
+              <summary className="cursor-pointer text-lg text-outline">{item.q}</summary>
+              <p className="mt-2  text-[#ffcc70] text-outline">{item.a}</p>
             </details>
-          ))}
+          ))} {/* Your FAQ items */}
+
         </div>
       </motion.div>
-      <div className=" border-red-500 border mt-10 flex">
-        <a className=" text-[#ffcc70] text-5xl font-bold">Download the app now</a>
-        <motion.img  initial={{ x: 480, opacity: 0 }}
+      <div className="mt-20 flex w-full  text-[15rem]  items-center justify-center px-4 overflow-hidden">
+
+        <motion.div
+          initial={{ x: -400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="h-50"
-        src="https://res.cloudinary.com/dq829orud/image/upload/v1745279459/1_YDTco_dV-qqFP7EtPEERVw_uylyfg.png"/>
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-outline text-2xl sm:text-3xl md:text-4xl font-semibold text-center md:text-left pr-10 text-[#ffcc70]"
+        >
+          Download our app now
+        </motion.div>
+        <motion.img
+           ref={downloadRef}
+           initial="hidden"
+           animate={downloadControls}
+           variants={{
+             hidden: { x: 500, opacity: 0 },
+             visible: {x: 0,opacity: .3,
+               transition: { duration: 1, ease: "easeOut" },
+             },
+           }}
+         src="https://res.cloudinary.com/dq829orud/image/upload/v1745063312/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA3L2hpcHBvdW5pY29ybl9waG90b19vZl9kaXNzZWN0ZWRfZmxvYXRpbmdfdGFjb19zZXBhcmF0ZV9sYXllcl9vZl84M2Q0ODAwNC03MDc0LTRlZjItYjYyOC1jZTU3ODhiYzQxOGEucG5n-removebg-previe_oozrky.png" className="absolute opacity-20 translate-x-150  " />
+        <motion.img  
+        ref={downloadRef}
+           initial="hidden"
+           animate={downloadControls}
+           variants={{
+             hidden: { y: 500, opacity: 0 },
+             visible: {y: 0,opacity: .3,
+               transition: { duration: 1, ease: "easeOut" },
+             },
+           }}
+         src="https://res.cloudinary.com/dq829orud/image/upload/v1745063313/delicious-spaghetti-dish-with-fresh-ingredients-pan-with-transparent-background_84443-25952-removebg-preview_n938nc.png" className="absolute opacity-50 -translate-x-120  " />
+
+        <motion.img
+          ref={downloadRef}
+          initial="hidden"
+          animate={downloadControls}
+          variants={{
+            hidden: { y: 150, opacity: 0 },
+            visible: {
+              y: 0,
+              opacity: .7,
+              transition: { duration: 1, ease: "easeOut" },
+            },
+          }}
+          className="h-32 sm:h-36 md:h-40 border-2 border-amber-600 backdrop-blur-2xl bg-white/50 rounded-lg"
+          src="https://res.cloudinary.com/dq829orud/image/upload/v1745279459/1_YDTco_dV-qqFP7EtPEERVw_uylyfg.png"
+        />
       </div>
-    </div>
+      <div className="flex items-center justify-center mt-65 flex-col mb-10">
+        <div className="text-white text-2xl font-roboto pb-10 ">We are also on</div>
+        <div className="flex mt-5 space-x-15 text-2xl ">
+          <FcGoogle className="cursor-pointer" />
+          <SiFacebook className="text-blue-600 bg-white rounded-3xl cursor-pointer" />
+          <FaInstagram className="text-white bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] rounded cursor-pointer" />
+          <FaLinkedin className="text-blue-600 bg-white rounded cursor-pointer" />
+          <FaXTwitter className="text-black bg-white rounded cursor-pointer" />
+          <FaYoutube className="text-red-600 bg-white rounded cursor-pointer" />
+        </div>
+      </div>
+      <div className=""><img className="w-full h-full opacity-50" src="https://res.cloudinary.com/dq829orud/image/upload/v1745321204/92448687770_vqdle1.png " /></div>
+    </div >
   );
 }
 

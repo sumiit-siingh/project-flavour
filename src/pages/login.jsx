@@ -25,7 +25,7 @@ const Login = () => {
             <img
                 src="https://res.cloudinary.com/dq829orud/image/upload/v1744634683/top-view-delicious-meat-soup-with-potatoes-greens-dark-blue-desk_xh01bu.jpg"
                 alt="Soup"
-                className="w-full h-auto opacity-20 blur-[2px]"
+                className="w-full h-screen opacity-20 blur-[2px]"
             />
             <div className='overflow-hidden opacity-70 shadow-2xl border-amber-400 bg-[#0a0909] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 h-[70%] max-h-[33rem] w-[90%] max-w-[50rem] rounded-2xl border-1'><img alt='image' className='opacity-100 object-fill sm:h-130 overflow-hidden ' src='https://res.cloudinary.com/dq829orud/image/upload/v1744637452/bg-removed-login_xga83m.png'></img>
                 <div className='flex flex-col gap-y-3 bg-[#151515] absolute top-[60px] left-[60px] h-[75%] max-h-[25rem] w-[80%] max-w-[16rem] rounded-lg'>
