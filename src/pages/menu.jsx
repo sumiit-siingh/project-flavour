@@ -144,6 +144,50 @@ function Menu() {
               src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
               lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
             },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
+            {
+              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
+              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
+            },
           ].map((item, index) => {
             const controls = useAnimation();
             const [ref, inView] = useInView({ triggerOnce: true });
@@ -161,7 +205,7 @@ function Menu() {
                 y: 0,
                 transition: {
                   duration: 0.5,
-                  delay: index * 0.07,  // Stagger the animation
+                  delay: index * 0.08,  // Stagger the animation
                 },
               },
             };
