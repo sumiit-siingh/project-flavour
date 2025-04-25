@@ -147,8 +147,8 @@ function Contact() {
               key={idx}
               className="p-4 w-full flex flex-col items-center max-w-md  bg-opacity-10 backdrop-blur-sm rounded mb-2"
             >
-              <summary className="cursor-pointer text-lg text-outline">{item.q}</summary>
-              <p className="mt-2  text-[#ffcc70] text-outline">{item.a}</p>
+              <summary className="cursor-pointer text-lg text-outline font-coiny-regular">{item.q}</summary>
+              <p className="mt-2  text-[#ffcc70] text-outline ">{item.a}</p>
             </details>
           ))} {/* Your FAQ items */}
 
@@ -160,7 +160,7 @@ function Contact() {
           initial={{ x: -400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-outline text-2xl sm:text-3xl md:text-4xl font-semibold text-center md:text-left pr-10 text-[#ffcc70]"
+          className="text-outline text-2xl sm:text-3xl md:text-4xl font-semibold text-center md:text-left pr-10 text-[#ffcc70] font-limelight-regular"
         >
           Download our app now
         </motion.div>
@@ -204,7 +204,7 @@ function Contact() {
         />
       </div>
       <div className="flex items-center justify-center mt-65 flex-col mb-10">
-        <div className="text-white text-2xl font-roboto pb-10 ">We are also on</div>
+        <div className="text-white text-2xl font-roboto pb-10 font-limelight-regular ">We are also on</div>
         <div className="flex mt-5 space-x-15 text-2xl ">
           <FcGoogle className="cursor-pointer" />
           <SiFacebook className="text-blue-600 bg-white rounded-3xl cursor-pointer" />
