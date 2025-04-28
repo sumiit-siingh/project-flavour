@@ -33,24 +33,24 @@ function Homepage() {
   const visibleItems = foodItems.slice(startIndex, startIndex + visibleCount);
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 font-poppins overflow-hidden pt-24 select-none">
+    <div className="min-h-screen w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black font-poppins overflow-hidden pt-24 select-none">
       <div className="w-[90%] mx-auto pt-12 grid grid-cols-1 lg:grid-cols-2">
         <div>
-          <div className="text-6xl md:text-8xl font-bold leading-tight mb-2">
+          <div className=" text-[#ffcc70] text-6xl md:text-8xl font-bold leading-tight mb-2">
             Order your
           </div>
-          <div className="text-6xl md:text-[4rem] font-normal mb-6">
+          <div className="text-6xl md:text-[4rem] text-white font-normal mb-6">
             favourite foods
           </div>
 
-          <div className="text-base text-gray-600 max-w-md mb-10">
+          <div className="text-base text-gray-400 max-w-md mb-10">
             Fresh and tasty seafood curry sit amet, consectetur Curabitur
             accumsan auctor pulvinar proin sit amet.
           </div>
 
           <div className="mb-12">
-            <div className="text-2xl font-light mb-6">
-              Total order : <span className="font-bold">$24.30</span>
+            <div className="text-2xl text-[#ffcc70] font-light mb-6">
+              Total order : <span className="font-bold text-white ">$24.30</span>
             </div>
 
             <div className="flex items-center gap-6 flex-wrap select-none">
@@ -61,7 +61,7 @@ function Homepage() {
                 >
                   ▼
                 </span>
-                <span className="mx-4 text-xl font-medium">{count}</span>
+                <span className="mx-4 text-xl text-white/90 font-medium">{count}</span>
                 <span
                   onClick={increment}
                   className="text-gray-400 cursor-pointer"
@@ -70,8 +70,8 @@ function Homepage() {
                 </span>
               </div>
 
-              <div className="bg-gray-900 text-white px-8 py-3 rounded-full cursor-pointer flex items-center gap-2">
-                <span className="bg-yellow-300 text-gray-900 w-6 h-6 rounded-full flex items-center justify-center text-xs">
+              <div className="bg-[#ffcc70] font-bold px-8 py-3 rounded-full cursor-pointer flex items-center gap-2">
+                <span className="bg-[#ffcc70]  w-6 h-6 rounded-full flex items-center justify-center text-2xl">
                   🛒
                 </span>
                 Buy Now
@@ -124,23 +124,23 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className="h-[600px] w-[100%] bg-red-400">
+      {/* <div className="h-[600px] w-[100%] bg-r ed-400">
         <div className="text-amber-600 font-bold text-shadow-red-400 justify-center text-8xl ">Our Offerings</div>
         
               
       </div>
-      <div className="h-[600px] w-[100%] bg-red-500">
+      <div className="h-[600px] w-[100%] bg-r ed-500">
         <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Our Services</div>
               
       </div>
-      <div className="h-[700px] w-[100%] bg-red-600">
+      <div className="h-[700px] w-[100%] bg-r ed-600">
         <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Our something</div>
               
       </div>
-      <div className="h-[800px] w-[100%] bg-red-700">
+      <div className="h-[800px] w-[100%] bg-r ed-700">
         <div className="text-amber-400 font-bold text-shadow-red-400 justify-center text-8xl">Contact Us</div>
               
-      </div>
+      </div> */}
     </div>
   );
 }

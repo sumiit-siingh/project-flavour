@@ -23,7 +23,7 @@ const Navbar=()=> {
     <div
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className={`h-18 w-full flex items-center font-[Poppins] justify-around z-[100] fixed top-0 left-0 select-none transition-all duration-300 ${
+      className={`h-18 w-full flex items-center font-[Poppins] justify-around z-[100] fixed top-0 left-0 select-none transition-all duration-300 bg-gradient-to-r from-gray-700 via-gray-900 to-black ${
         scrolled ? "bg-transparent/90 shadow-md backdrop-blur" : "bg-white/0"
       }`}
     >
@@ -31,15 +31,15 @@ const Navbar=()=> {
       {isHover ? (
         <div className="font-extrabold text-2xl transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
           <span>
-            f<span className="text-red-600">o</span>c
-            <span className="text-red-600">o</span>
+            fork<span className="text-red-600">n</span>
+            <span className="text-re d-600">knife</span>
           </span>
         </div>
       ) : (
-        <div className="font-extrabold text-2xl transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 text-red-600">
+        <div className="font-extrabold text-2xl transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 te xt-red-600">
           <span>
-            f<span className="text-black">o</span>c
-            <span className="text-black">o</span>
+            hot<span className="text-red-600">n</span>
+            <span className="text-black">plate</span>
           </span>
         </div>
       )}

@@ -225,7 +225,7 @@ function Menu() {
                     src={item.src}
                     alt={item.lines}
                     whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.8 }}
                   />
                 </div>
           
