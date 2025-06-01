@@ -11,8 +11,10 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
+import { useTheme } from '../context/ThemeContext';
 
 function Contact() {
+  const { isDarkMode } = useTheme();
   const downloadControls = useAnimation();
   const [downloadRef, downloadInView] = useInView({ triggerOnce: true });
   const [ref, inView] = useInView({ triggerOnce: true });
@@ -40,12 +42,12 @@ function Contact() {
   };
 
   return (
-    <div className="h-full relative flex flex-col bg-gradient-to-r from-gray-700 via-gray-900 to-black overflow-hidden">
+    <div className={`h-full relative flex flex-col ${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} overflow-hidden transition-colors duration-300`}>
       {/* Top section */}
-      <div className="mt-20 flex w-full text-[15rem] relative items-center justify-center px-4  ">
+      <div className="mt-20 flex w-full text-[15rem] relative items-center justify-center px-4">
         <motion.img
           src="https://res.cloudinary.com/dq829orud/image/upload/v1745255111/telephone-laptop-flat-lay-with-workspace-yellow-background_140725-23283_eugykf.jpg"
-          className="h-120 w-full shadow-lg shadow-white rounded-lg bg-white "
+          className={`h-120 w-full shadow-lg ${isDarkMode ? 'shadow-white' : 'shadow-gray-800'} rounded-lg bg-white transition-colors duration-300`}
           initial={{ y: 400, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -63,7 +65,7 @@ function Contact() {
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 0.7, y: 145 }}
           transition={{ duration: 1 }}
-          className="absolute text-xl font-extrabold text-white text-outline"
+          className={`absolute text-xl font-extrabold ${isDarkMode ? 'text-white' : 'text-gray-800'} text-outline`}
         >
           Let us know how can we help
         </motion.p>
@@ -77,34 +79,34 @@ function Contact() {
         className="text-2xl h-50 w-full flex justify-around -translate-y-15"
       >
         {/* Chat card */}
-        <div className="relative text-[#e56023] bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow-lg shadow-white/50 w-60 p-4 rounded-lg">
+        <div className={`relative text-[#e56023] ${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} ${isDarkMode ? 'shadow-white/50' : 'shadow-gray-800/50'} shadow-lg w-60 p-4 rounded-lg transition-colors duration-300`}>
           <div className="absolute top-4 left-4 text-3xl text-[#ffcc70]">
             <IoChatbubblesOutline />
           </div>
           <div className="absolute bottom-4 left-4 flex flex-col">
-            <a className="text-xl text-white">Chat to support team</a>
+            <a className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Chat to support team</a>
             <a className="text-sm text-[#ffcc70]">Talk to our friendly team</a>
           </div>
         </div>
 
         {/* Email card */}
-        <div className="relative text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow-lg shadow-white/50 rounded-lg h-52 w-60 p-4">
+        <div className={`relative ${isDarkMode ? 'text-white' : 'text-gray-800'} ${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} ${isDarkMode ? 'shadow-white/50' : 'shadow-gray-800/50'} shadow-lg rounded-lg h-52 w-60 p-4 transition-colors duration-300`}>
           <div className="absolute top-4 left-4 text-3xl text-[#ffcc70]">
             <HiOutlineMail />
           </div>
           <div className="absolute bottom-4 left-4 flex flex-col">
-            <a className="text-xl">Email us</a>
+            <a className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Email us</a>
             <a className="text-sm text-[#ffcc70]">Drop us your Query</a>
           </div>
         </div>
 
         {/* Call card */}
-        <div className="relative text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow-lg shadow-white/50 rounded-lg h-52 w-60 p-4">
+        <div className={`relative ${isDarkMode ? 'text-white' : 'text-gray-800'} ${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} ${isDarkMode ? 'shadow-white/50' : 'shadow-gray-800/50'} shadow-lg rounded-lg h-52 w-60 p-4 transition-colors duration-300`}>
           <div className="absolute top-4 left-4 text-3xl text-[#ffcc70]">
             <VscCallOutgoing />
           </div>
           <div className="absolute bottom-4 left-4 flex flex-col">
-            <a className="text-xl">Call us</a>
+            <a className={`text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Call us</a>
             <a className="text-sm text-[#ffcc70]">Get in touch</a>
           </div>
         </div>
@@ -118,7 +120,7 @@ function Contact() {
         animate={controls}
         className="flex items-center justify-center"
       >
-        <div className=" mt-10 text-white">
+        <div className={`mt-10 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
           <a className="text-3xl mb-4 text-[#ffcc70] text-outline">Frequently asked questions</a>
 
           {[
@@ -145,47 +147,54 @@ function Contact() {
           ].map((item, idx) => (
             <details
               key={idx}
-              className="p-4 w-full flex flex-col items-center max-w-md  bg-opacity-10 backdrop-blur-sm rounded mb-2"
+              className={`p-4 w-full flex flex-col items-center max-w-md ${isDarkMode ? 'bg-opacity-10' : 'bg-opacity-20'} backdrop-blur-sm rounded mb-2 transition-colors duration-300`}
             >
-              <summary className="cursor-pointer text-lg text-outline font-coiny-regular">{item.q}</summary>
-              <p className="mt-2  text-[#ffcc70] text-outline ">{item.a}</p>
+              <summary className={`cursor-pointer text-lg text-outline font-coiny-regular ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{item.q}</summary>
+              <p className="mt-2 text-[#ffcc70] text-outline">{item.a}</p>
             </details>
-          ))} {/* Your FAQ items */}
-
+          ))}
         </div>
       </motion.div>
-      <div className="mt-20 flex w-full  text-[15rem]  items-center justify-center px-4 overflow-hidden">
 
+      <div className="mt-20 flex w-full text-[15rem] items-center justify-center px-4 overflow-hidden">
         <motion.div
           initial={{ x: -400, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-outline text-2xl sm:text-3xl md:text-4xl font-semibold text-center md:text-left pr-10 text-[#ffcc70] font-limelight-regular"
+          className={`text-outline text-2xl sm:text-3xl md:text-4xl font-semibold text-center md:text-left pr-10 text-[#ffcc70] font-limelight-regular ${isDarkMode ? 'text-white' : 'text-gray-800'}`}
         >
           Download our app now
         </motion.div>
         <motion.img
-           ref={downloadRef}
-           initial="hidden"
-           animate={downloadControls}
-           variants={{
-             hidden: { x: 500, opacity: 0 },
-             visible: {x: 0,opacity: .3,
-               transition: { duration: 1, ease: "easeOut" },
-             },
-           }}
-         src="https://res.cloudinary.com/dq829orud/image/upload/v1745063312/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA3L2hpcHBvdW5pY29ybl9waG90b19vZl9kaXNzZWN0ZWRfZmxvYXRpbmdfdGFjb19zZXBhcmF0ZV9sYXllcl9vZl84M2Q0ODAwNC03MDc0LTRlZjItYjYyOC1jZTU3ODhiYzQxOGEucG5n-removebg-previe_oozrky.png" className="absolute opacity-20 translate-x-150  " />
-        <motion.img  
-        ref={downloadRef}
-           initial="hidden"
-           animate={downloadControls}
-           variants={{
-             hidden: { y: 500, opacity: 0 },
-             visible: {y: 0,opacity: .3,
-               transition: { duration: 1, ease: "easeOut" },
-             },
-           }}
-         src="https://res.cloudinary.com/dq829orud/image/upload/v1745063313/delicious-spaghetti-dish-with-fresh-ingredients-pan-with-transparent-background_84443-25952-removebg-preview_n938nc.png" className="absolute opacity-50 -translate-x-120  " />
+          ref={downloadRef}
+          initial="hidden"
+          animate={downloadControls}
+          variants={{
+            hidden: { x: 500, opacity: 0 },
+            visible: {
+              x: 0,
+              opacity: .3,
+              transition: { duration: 1, ease: "easeOut" },
+            },
+          }}
+          src="https://res.cloudinary.com/dq829orud/image/upload/v1745063312/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA3L2hpcHBvdW5pY29ybl9waG90b19vZl9kaXNzZWN0ZWRfZmxvYXRpbmdfdGFjb19zZXBhcmF0ZV9sYXllcl9vZl84M2Q0ODAwNC03MDc0LTRlZjItYjYyOC1jZTU3ODhiYzQxOGEucG5n-removebg-previe_oozrky.png"
+          className="absolute opacity-20 translate-x-150"
+        />
+        <motion.img
+          ref={downloadRef}
+          initial="hidden"
+          animate={downloadControls}
+          variants={{
+            hidden: { y: 500, opacity: 0 },
+            visible: {
+              y: 0,
+              opacity: .3,
+              transition: { duration: 1, ease: "easeOut" },
+            },
+          }}
+          src="https://res.cloudinary.com/dq829orud/image/upload/v1745063313/delicious-spaghetti-dish-with-fresh-ingredients-pan-with-transparent-background_84443-25952-removebg-preview_n938nc.png"
+          className="absolute opacity-50 -translate-x-120"
+        />
 
         <motion.img
           ref={downloadRef}
@@ -199,13 +208,14 @@ function Contact() {
               transition: { duration: 1, ease: "easeOut" },
             },
           }}
-          className="h-32 sm:h-36 md:h-40 border-2 border-amber-600 backdrop-blur-2xl bg-white/50 rounded-lg"
+          className={`h-32 sm:h-36 md:h-40 border-2 border-amber-600 backdrop-blur-2xl ${isDarkMode ? 'bg-white/50' : 'bg-gray-100/50'} rounded-lg transition-colors duration-300`}
           src="https://res.cloudinary.com/dq829orud/image/upload/v1745279459/1_YDTco_dV-qqFP7EtPEERVw_uylyfg.png"
         />
       </div>
+
       <div className="flex items-center justify-center mt-65 flex-col mb-10">
-        <div className="text-white text-2xl font-roboto pb-10 font-limelight-regular ">We are also on</div>
-        <div className="flex mt-5 space-x-15 text-2xl ">
+        <div className={`${isDarkMode ? 'text-white' : 'text-gray-800'} text-2xl font-roboto pb-10 font-limelight-regular`}>We are also on</div>
+        <div className="flex mt-5 space-x-15 text-2xl">
           <FcGoogle className="cursor-pointer" />
           <SiFacebook className="text-blue-600 bg-white rounded-3xl cursor-pointer" />
           <FaInstagram className="text-white bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] rounded cursor-pointer" />
@@ -214,8 +224,11 @@ function Contact() {
           <FaYoutube className="text-red-600 bg-white rounded cursor-pointer" />
         </div>
       </div>
-      <div className=""><img className="w-full h-full opacity-50" src="https://res.cloudinary.com/dq829orud/image/upload/v1745321204/92448687770_vqdle1.png " /></div>
-    </div >
+
+      <div>
+        <img className="w-full h-full opacity-50" src="https://res.cloudinary.com/dq829orud/image/upload/v1745321204/92448687770_vqdle1.png" />
+      </div>
+    </div>
   );
 }
 

@@ -1,78 +1,151 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom'
 import { LuEyeClosed, LuEye } from "react-icons/lu";
-
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
-import { useState } from 'react';
-
+import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Login = () => {
-
-    const [passwordVisible, setPasswordVisible] = useState(false); // State to manage visibility
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const { login, isAuthenticated } = useAuth();
+    const { isDarkMode } = useTheme();
 
     const togglePasswordVisibility = () => {
-        setPasswordVisible(!passwordVisible); // Toggle password visibility
+        setPasswordVisible(!passwordVisible);
     };
 
-    const navigate = useNavigate()
-    function getFocused() {
-        document.getElementById("email").focus()
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        setError('');
+        
+        try {
+            await login(email, password);
+            navigate('/');
+        } catch (err) {
+            setError(err.response?.data?.message || 'Login failed. Please try again.');
+        }
+    };
+
+    if (isAuthenticated) {
+        return <Navigate to="/" replace />;
     }
+
     return (
-        <div className="relative w-full h-screen backdrop- bg-black flex justify-center items-center ">
+        <div className={`fixed inset-0 ${isDarkMode ? 'bg-black' : 'bg-gray-100'} flex items-center justify-center transition-colors duration-300`}>
             <img
                 src="https://res.cloudinary.com/dq829orud/image/upload/v1744634683/top-view-delicious-meat-soup-with-potatoes-greens-dark-blue-desk_xh01bu.jpg"
                 alt="Soup"
-                className="w-full h-screen opacity-20 blur-[2px]"
+                className={`absolute inset-0 w-full h-full object-cover ${isDarkMode ? 'opacity-20' : 'opacity-10'} blur-[2px]`}
             />
-            <div className='overflow-hidden opacity-70 shadow-2xl border-amber-400 bg-[#0a0909] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 h-[70%] max-h-[33rem] w-[90%] max-w-[50rem] rounded-2xl border-1'><img alt='image' className='opacity-100 object-fill sm:h-130 overflow-hidden ' src='https://res.cloudinary.com/dq829orud/image/upload/v1744637452/bg-removed-login_xga83m.png'></img>
-                <div className='flex flex-col gap-y-3 bg-[#151515] absolute top-[60px] left-[60px] h-[75%] max-h-[25rem] w-[80%] max-w-[16rem] rounded-lg'>
-                    <div className='text-center text-lg md:text-xl font-bold  translate-y-2 text-amber-500 transition delay-150 duration-300 ease-in-out hover:translate-y-1 hover:scale-110'>Hey, there !</div>
-                    <div className=' translate-y-2 text-xs translate-x-3 text-amber-400'>Email</div>
-                    <input id='email' className=' h-9 p-2 border-none bg-white  text-xs text-shadow-xs outline-amber-300 ml-3 mr-3 rounded-lg ' placeholder='username@gmail.com' />
+            <div className={`relative w-[90%] max-w-[400px] aspect-square ${isDarkMode ? 'bg-[#0a0909]' : 'bg-white'} rounded-2xl border border-amber-400 shadow-2xl overflow-hidden transition-colors duration-300`}>
+                <div className="flex h-full">
+                    {/* Image Section */}
+                    <div className="hidden md:block w-1/2 h-full">
+                        <img 
+                            alt='login background' 
+                            className='w-full h-full object-cover'
+                            src='https://res.cloudinary.com/dq829orud/image/upload/v1744637452/bg-removed-login_xga83m.png'
+                        />
+                    </div>
 
-                    <div>
-                        <div className='text-amber-400 translate-y-2 translate-x-3 text-xs'>Password</div>
-                        <div className="relative">
-                            <input
-                                type={passwordVisible ? 'text' : 'password'}
-                                className='bg-white h-9 w-58 rounded-lg pr-18 outline-amber-300 text-xs text-shadow-xs rounded-l-lg mt-3 ml-3 p-3'
-                                placeholder='Password'
-                            />
-
-                            <div
-                                onClick={togglePasswordVisibility}
-                                className="absolute right-3 mt-1 rounded-r-lg transform -translate-y-10 h-9 bg-white cursor-pointer -pl-3"
-                            >
-                                {passwordVisible ? (
-                                    <LuEye className="mr-2 h-9 w-5 text-gray-600" />
-                                ) : (
-                                    <LuEyeClosed className="mr-2 h-9 w-5 text-gray-600" />
-                                )}
+                    {/* Form Section */}
+                    <div className={`w-full md:w-1/2 p-3 md:p-4 ${isDarkMode ? 'bg-[#151515]' : 'bg-gray-50'} flex items-center transition-colors duration-300`}>
+                        <form onSubmit={handleLogin} className='w-full space-y-4'>
+                            <div className='text-center text-base md:text-lg font-bold text-amber-500 transition-all duration-300 hover:scale-105'>
+                                Hey, there!
                             </div>
-                        </div>
-                    </div>
+                            
+                            {error && (
+                                <div className='text-red-500 text-xs text-center'>{error}</div>
+                            )}
 
+                            <div className='space-y-2'>
+                                <div className='w-[90%] mx-auto'>
+                                    <label className='text-amber-400 text-xs block text-left mb-1'>Email</label>
+                                    <input 
+                                        id='email' 
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className={`w-full p-2 ${isDarkMode ? 'bg-white' : 'bg-gray-100'} text-xs rounded-lg outline-amber-300 focus:ring-1 focus:ring-amber-300 transition-colors duration-300`}
+                                        placeholder='username@gmail.com' 
+                                        required
+                                    />
+                                </div>
+                            </div>
 
-                    <div className='text-white text-right  -translate-y-2 -translate-x-2 text-xs cursor-pointer mr-1'>Forgot Password ?</div>
-                    <div className='' onCli ck={() => navigate('/')}><div className='bg-amber-500 text-white flex items-center justify-center text-xs font-bold rounded-lg h-8 cursor-pointer mr-3 ml-3 ' onClick={getFocused}>Log in</div></div>
-                    <div className='text-white text-xs text-center translate-y-1'>or Continue with</div>
-                    <div className='flex justify-around  translate-y-3 h-7'>
-                        <div className='bg-white h-[110%] w-[20%] rounded-4xl flex cursor-pointer items-center justify-center transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-white'><div><FcGoogle className='bg-white  ' /></div></div>
-                        <div className='bg-white h-[110%] w-[20%] rounded-3xl cursor-pointer flex items-center justify-center transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 '><div><FaGithub className='bg-white ' /></div></div>
-                        <div className='bg-white h-[110%] w-[20%] rounded-2xl flex items-center justify-center cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 '> <div ><FaFacebook className='bg-white   ' /></div></div>
+                            <div className='space-y-2'>
+                                <div className='w-[90%] mx-auto'>
+                                    <label className='text-amber-400 text-xs block text-left mb-1'>Password</label>
+                                    <div className="relative">
+                                        <input
+                                            type={passwordVisible ? 'text' : 'password'}
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            className={`w-full p-2 ${isDarkMode ? 'bg-white' : 'bg-gray-100'} rounded-lg outline-amber-300 focus:ring-1 focus:ring-amber-300 text-xs transition-colors duration-300`}
+                                            placeholder='Password'
+                                            required
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={togglePasswordVisibility}
+                                            className={`absolute right-2 top-1/2 -translate-y-1/2 ${isDarkMode ? 'text-gray-600 hover:text-gray-800' : 'text-gray-500 hover:text-gray-700'} cursor-pointer transition-colors duration-300`}
+                                        >
+                                            {passwordVisible ? (
+                                                <LuEye className="w-3.5 h-3.5" />
+                                            ) : (
+                                                <LuEyeClosed className="w-3.5 h-3.5" />
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
-                    </div>
-                    <div className='flex justify-around translate-y-3'>
-                        <div className='text-white text-xs'>Don't have an account?</div>
-                        <div className='text-white text-xs'><a className='text-amber-600' href='/signup'>Register</a> for free</div>
+                            <div className={`${isDarkMode ? 'text-white' : 'text-gray-700'} text-right text-xs cursor-pointer hover:text-amber-400 transition-colors w-[90%] mx-auto`}>
+                                Forgot Password?
+                            </div>
+
+                            <div className='w-[90%] mx-auto'>
+                                <button 
+                                    type="submit"
+                                    className='w-full bg-amber-500 text-white py-1.5 rounded-lg text-sm font-medium hover:bg-amber-600 transition-colors focus:ring-1 focus:ring-amber-300 focus:ring-offset-1 cursor-pointer'
+                                >
+                                    Log in
+                                </button>
+                            </div>
+
+                            <div className={`${isDarkMode ? 'text-white' : 'text-gray-700'} text-xs text-center`}>or Continue with</div>
+
+                            <div className='flex justify-center gap-2'>
+                                <button type="button" className={`p-1.5 ${isDarkMode ? 'bg-white' : 'bg-gray-100'} rounded-full hover:scale-110 transition-transform cursor-pointer`}>
+                                    <FcGoogle className='w-4 h-4' />
+                                </button>
+                                <button type="button" className={`p-1.5 ${isDarkMode ? 'bg-white' : 'bg-gray-100'} rounded-full hover:scale-110 transition-transform cursor-pointer`}>
+                                    <FaGithub className='w-4 h-4' />
+                                </button>
+                                <button type="button" className={`p-1.5 ${isDarkMode ? 'bg-white' : 'bg-gray-100'} rounded-full hover:scale-110 transition-transform cursor-pointer`}>
+                                    <FaFacebook className='w-4 h-4 text-blue-600' />
+                                </button>
+                            </div>
+
+                            <div className={`flex justify-center gap-1 text-xs ${isDarkMode ? 'text-white' : 'text-gray-700'}`}>
+                                <span>Don't have an account?</span>
+                                <a href='/signup' className='text-amber-500 hover:text-amber-400 transition-colors'>
+                                    Register
+                                </a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
+
 export default Login;

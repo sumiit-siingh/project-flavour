@@ -1,15 +1,16 @@
 import React from "react";
 import { CiStar } from "react-icons/ci";
 import { useAnimation } from "framer-motion";
-
-import { motion } from "framer-motion";  // For animation
-import { useInView } from "react-intersection-observer";  // For scroll detection
-import { useEffect, useState } from "react";  // For managing effects and states
-
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
+import { useTheme } from '../context/ThemeContext';
 
 function Menu() {
+  const { isDarkMode } = useTheme();
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true });
+  
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -17,15 +18,14 @@ function Menu() {
   }, [controls, inView]);
   
   return (
-    
-    <div className="min-h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-black px-4">
-      <div className=" pt-10 ">
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} px-4 transition-colors duration-300`}>
+      <div className="pt-10">
         {/* White Box with Title and Images */}
-        <div className=" mt-10 p-4">
-          <div className="text-lg font-semibold text-amber-500 mb-4 sm:ml-5 xl:ml-11 text-outline">Hey, What's your Food mood?</div>
+        <div className="mt-10 p-4">
+          <div className={`text-lg font-semibold ${isDarkMode ? 'text-amber-500' : 'text-amber-600'} mb-4 sm:ml-5 xl:ml-11 text-outline`}>Hey, What's your Food mood?</div>
 
           <div className="overflow-x-auto">
-            <div className="flex justify-around ">
+            <div className="flex justify-around">
               {[
                 {
                   src: "https://res.cloudinary.com/dq829orud/image/upload/v1744914196/double-cheeseburger_hyjkss.png",
@@ -66,14 +66,14 @@ function Menu() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center min-w-[100px] max-w-[100px]  "
+                  className="flex flex-col items-center min-w-[100px] max-w-[100px]"
                 >
                   <img
                     src={item.src}
                     alt={item.lines}
-                    className="w-20 h-20 object-cover rounded-full mt-4  hover:drop-shadow-md hover:drop-shadow-amber-500  hover:scale-130 transition-transform duration-400"
+                    className={`w-20 h-20 object-cover rounded-full mt-4 hover:drop-shadow-md ${isDarkMode ? 'hover:drop-shadow-amber-500' : 'hover:drop-shadow-amber-600'} hover:scale-130 transition-transform duration-400`}
                   />
-                  <p className="mt-2 text-sm text-center text-outline font-medium text-[#f2d49c] ">{item.lines}</p>
+                  <p className={`mt-2 text-sm text-center text-outline font-medium ${isDarkMode ? 'text-[#f2d49c]' : 'text-amber-600'}`}>{item.lines}</p>
                 </div>
               ))}
             </div>
@@ -82,11 +82,11 @@ function Menu() {
       </div>
 
       {/* Below the image and mood text */}
-      <div className=" sm:ml-5 md:ml-7 xl:ml-14 mt-10 font-semibold text-xl text-amber-500 text-outline">
+      <div className={`sm:ml-5 md:ml-7 xl:ml-14 mt-10 font-semibold text-xl ${isDarkMode ? 'text-amber-500' : 'text-amber-600'} text-outline`}>
         Top discounts for you
       </div>
-      <div className=" ">
-        <div className="flex flex-wrap justify-around mt-10 ">
+      <div>
+        <div className="flex flex-wrap justify-around mt-10">
           {[
             {
               src: "https://res.cloudinary.com/dq829orud/image/upload/v1745127502/IMG-20250420-WA0016_ae1kp6.jpg",
@@ -184,10 +184,6 @@ function Menu() {
               src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
               lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
             },
-            {
-              src: "https://res.cloudinary.com/dq829orud/image/upload/v1745176815/dosa_sulfg5.jpg",
-              lines: ["Items @ 99", "Desi Hit", "4.3  |", "15-20 mins", "Snacks", "Indirapuram"]
-            },
           ].map((item, index) => {
             const controls = useAnimation();
             const [ref, inView] = useInView({ triggerOnce: true });
@@ -205,7 +201,7 @@ function Menu() {
                 y: 0,
                 transition: {
                   duration: 0.5,
-                  delay: index * 0.08,  // Stagger the animation
+                  delay: index * 0.08,
                 },
               },
             };
@@ -217,7 +213,7 @@ function Menu() {
                 initial="hidden"
                 animate={controls}
                 variants={variants}
-                className="text-[#f2d49c] mb-10 xl:text-[15px] text-xs overflow-hidden"
+                className={`${isDarkMode ? 'text-[#f2d49c]' : 'text-amber-600'} mb-10 xl:text-[15px] text-xs overflow-hidden`}
               >
                 <div className="w-[15rem] h-[10rem] rounded-full overflow-hidden mx-auto">
                   <motion.img
@@ -230,7 +226,7 @@ function Menu() {
                 </div>
           
                 <div className="cursor-pointer rounded-full -translate-y-4">
-                  <a className="block -translate-y-9 text-white font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl">
+                  <a className={`block -translate-y-9 ${isDarkMode ? 'text-white' : 'text-gray-800'} font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl`}>
                     {item.lines[0]}
                   </a>
           

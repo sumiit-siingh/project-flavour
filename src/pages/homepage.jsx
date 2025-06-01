@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 function Homepage() {
+  const { isDarkMode } = useTheme();
   const [count, setCount] = useState(7);
   const increment = () => setCount((x) => x + 1);
   const decrement = () => setCount((x) => (x > 0 ? x - 1 : 0));
@@ -28,48 +30,99 @@ function Homepage() {
 
   const visibleItems = foodItems.slice(startIndex, startIndex + visibleCount);
 
+  const services = [
+    {
+      title: "Fast Delivery",
+      description: "Get your favorite meals delivered to your doorstep within 30 minutes.",
+      icon: "🚚"
+    },
+    {
+      title: "Fresh Ingredients",
+      description: "We use only the freshest ingredients sourced from local suppliers.",
+      icon: "🥬"
+    },
+    {
+      title: "24/7 Support",
+      description: "Our customer support team is available round the clock to assist you.",
+      icon: "💬"
+    }
+  ];
+
+  const benefits = [
+    "Exclusive discounts for regular customers",
+    "Free delivery on orders above $30",
+    "Loyalty points system",
+    "Special weekend offers"
+  ];
+
   return (
-    <div className="min-h-screen w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black font-poppins overflow-hidden pt-24 select-none">
+    <div className={`min-h-screen w-full ${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} font-poppins overflow-hidden pt-24 select-none transition-colors duration-300`}>
       <div className="w-[90%] mx-auto pt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Left Section */}
         <div>
-          <div className="text-[#ffcc70] text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-tight mb-2">
+          <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-tight mb-2 ${isDarkMode ? 'text-[#ffcc70]' : 'text-yellow-600'}`}>
             Order your
           </div>
-          <div className="text-4xl sm:text-5xl md:text-[3rem] lg:text-[4rem] text-white font-normal mb-6">
+          <div className={`text-4xl sm:text-5xl md:text-[3rem] lg:text-[4rem] font-normal mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
             favourite foods
           </div>
-          <div className="text-base text-gray-400 max-w-md mb-10">
-            Fresh and tasty seafood curry sit amet, consectetur Curabitur
-            accumsan auctor pulvinar proin sit amet.
+          <div className={`text-base max-w-md mb-10 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            Experience the perfect blend of taste and convenience with our premium food delivery service. Fresh ingredients, expert chefs, and lightning-fast delivery.
+          </div>
+
+          {/* Services Section */}
+          <div className="mb-12">
+            <h2 className={`text-2xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Services</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {services.map((service, index) => (
+                <div key={index} className={`p-4 rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+                  <div className="text-3xl mb-2">{service.icon}</div>
+                  <h3 className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{service.title}</h3>
+                  <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{service.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Benefits Section */}
+          <div className="mb-12">
+            <h2 className={`text-2xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Benefits</h2>
+            <ul className={`space-y-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              {benefits.map((benefit, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mb-12">
-            <div className="text-2xl text-[#ffcc70] font-light mb-6">
-              Total order : <span className="font-bold text-white">$24.30</span>
+            <div className={`text-2xl font-light mb-6 ${isDarkMode ? 'text-[#ffcc70]' : 'text-yellow-600'}`}>
+              Total order : <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>$24.30</span>
             </div>
 
             <div className="flex items-center gap-6 flex-wrap">
-              <div className="flex items-center border border-gray-300 rounded-full px-4 py-2">
+              <div className={`flex items-center border ${isDarkMode ? 'border-gray-300' : 'border-gray-400'} rounded-full px-4 py-2`}>
                 <span
                   onClick={decrement}
-                  className="text-gray-400 cursor-pointer"
+                  className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} cursor-pointer`}
                 >
                   ▼
                 </span>
-                <span className="mx-4 text-xl text-white/90 font-medium">
+                <span className={`mx-4 text-xl font-medium ${isDarkMode ? 'text-white/90' : 'text-gray-800'}`}>
                   {count}
                 </span>
                 <span
                   onClick={increment}
-                  className="text-gray-400 cursor-pointer"
+                  className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} cursor-pointer`}
                 >
                   ▲
                 </span>
               </div>
 
-              <div className="bg-[#ffcc70] font-bold px-8 py-3 rounded-full cursor-pointer flex items-center gap-2">
-                <span className="bg-[#ffcc70] w-6 h-6 rounded-full flex items-center justify-center text-2xl">
+              <div className={`${isDarkMode ? 'bg-[#ffcc70]' : 'bg-yellow-500'} font-bold px-8 py-3 rounded-full cursor-pointer flex items-center gap-2`}>
+                <span className={`${isDarkMode ? 'bg-[#ffcc70]' : 'bg-yellow-500'} w-6 h-6 rounded-full flex items-center justify-center text-2xl`}>
                   🛒
                 </span>
                 Buy Now
@@ -80,7 +133,7 @@ function Homepage() {
           {/* Food Carousel */}
           <div className="flex gap-4 items-center flex-wrap">
             <div
-              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer"
+              className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white' : 'bg-gray-800'} shadow-md flex items-center justify-center cursor-pointer`}
               onClick={handlePrev}
             >
               ◀
@@ -99,7 +152,7 @@ function Homepage() {
             </div>
 
             <div
-              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer"
+              className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white' : 'bg-gray-800'} shadow-md flex items-center justify-center cursor-pointer`}
               onClick={handleNext}
             >
               ▶
