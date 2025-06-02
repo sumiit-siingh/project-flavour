@@ -85,7 +85,7 @@ function Homepage() {
           </div>
 
           {/* Benefits Section */}
-          <div className="mb-12">
+          {/* <div className="mb-12">
             <h2 className={`text-2xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Benefits</h2>
             <ul className={`space-y-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
               {benefits.map((benefit, index) => (
@@ -128,18 +128,18 @@ function Homepage() {
                 Buy Now
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Food Carousel */}
-          <div className="flex gap-4 items-center flex-wrap">
+          {/* <div className="flex gap-4 items-center flex-wrap">
             <div
               className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white' : 'bg-gray-800'} shadow-md flex items-center justify-center cursor-pointer`}
               onClick={handlePrev}
             >
               ◀
-            </div>
+            </div> */}
 
-            <div className="flex gap-4 transition-all duration-300 ease-in-out overflow-x-auto">
+            {/* <div className="flex gap-4 transition-all duration-300 ease-in-out overflow-x-auto">
               {visibleItems.map((item, index) => (
                 <div
                   key={index}
@@ -149,37 +149,37 @@ function Homepage() {
                   <div className="font-bold">{item.price}</div>
                 </div>
               ))}
-            </div>
+            </div> */}
 
-            <div
+            {/* <div
               className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white' : 'bg-gray-800'} shadow-md flex items-center justify-center cursor-pointer`}
               onClick={handleNext}
             >
               ▶
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="relative flex justify-center items-center overflow-visible">
-          {/* Background Image */}
-          <img
+        {/* <div className="relative flex justify-center items-center overflow-visible"> */}
+        {/* Background Image */}
+        {/* <img
             src="https://res.cloudinary.com/dpwqggym0/image/upload/v1744543029/istockphoto-2074939734-612x612-removebg-preview_zxqsdx.png"
             alt="background"
-            className="absolute right-[-80%] sm:right-[-60%] md:right-[-50%] top-0 scale-[2.1] sm:scale-[1.7] md:scale-[1.5] z-0 opacity-100"
-          />
+            className="absolute right-[-0%] sm:right-[-60%] md:right-[-50%] top-0 scale-[2.1] sm:scale-[1.7] md:scale-[1.5] z-0 opacity-100"
+          /> */}
 
-          {/* Front Image */}
-          <div className="z-10 flex items-center justify-center">
+        {/* Front Image */}
+        {/* <div className="z-10 flex items-center justify-center">
             <img
               src="https://res.cloudinary.com/dpwqggym0/image/upload/v1745103077/erasebg-transformed_mwsgcy.png"
               alt="Salad"
-              className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] max-w-full object-contain"
+              className="h-[600px] sm:h-[600px] md:h-[500px] lg:h-[600px] max-w-full object-contain"
             />
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
-    </div>
+    // </div>
   );
 }
 

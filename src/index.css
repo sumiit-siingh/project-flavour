@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Neonderthaw&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rationale&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities; 
+
+@theme{
+  --font-limelight-regular:Limelight,"sans-serif"
+}
+@theme{
+  --font-neonderthaw-regular:Neonderthaw, "cursive";
+}
+@theme{
+  --font-beau-rivage-regular:Beau Rivage, "cursive";
+}
+@theme{
+  --font-titan-one-regular:Titan One, "sans-serif";
+}
+@theme{
+  --font-rationale-regular:"Rationale", sans-serif;
+}
+@theme{
+  --font-bungee-outline-regular:"Bungee Outline", sans-serif;
+}
+@theme{
+  --font-poppins-thin:"Poppins", sans-serif;
+}
+@theme{
+  --font-poppins-regular:"Poppins", sans-serif;
+}

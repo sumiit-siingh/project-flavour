@@ -22,7 +22,7 @@ function Services() {
                         lines: ["Order", "Groc", "eries"]
                     }
                 ].map((item, index) => (
-                    <div key={index} className={`relative w-full max-w-sm mx-auto border-1 ${isDarkMode ? 'border-amber-400' : 'border-amber-600'} rounded-xl overflow-hidden translate-y-1 hover:shadow-2xl hover:scale-110 transition-transform`}>
+                    <div key={index} className={`relative w-full max-w-sm mx-auto border-1 ${isDarkMode ? 'border-amber-400' : 'border-amber-600'} rounded-xl overflow-hidden translate-y-1 hover:shadow-2xl hover:scale-110 transition-transform duration-500`}>
                         {/* Text Positioned Above Image */}
                         <div className="absolute top-4 left-0 w-full text-center">
                             <a className={`font-extrabold text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl drop-shadow-md/70 ${isDarkMode ? 'text-[#ffcc70]' : 'text-amber-600'} block`}>
@@ -38,7 +38,7 @@ function Services() {
 
                         {/* Image */}
                         <img
-                            className={`w-full hover:drop-shadow-xl/50 ${isDarkMode ? 'drop-shadow-amber-400' : 'drop-shadow-amber-600'} hover:scale-110 transition-transform`}
+                            className={`w-full hover:drop-shadow-xl/50 ${isDarkMode ? 'drop-shadow-amber-400' : 'drop-shadow-amber-600'} hover:scale-110 transition-transform ease-in-out`}
                             src={item.src}
                             alt="image"
                         />

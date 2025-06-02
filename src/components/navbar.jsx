@@ -31,12 +31,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} shadow-lg p-4 fixed top-0 left-0 right-0 z-50 transition-colors duration-300`}>
+    <nav className={`${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} shadow-lg p-4 fixed top-0 left-0 right-0 z-50 transition-colors duration-300 `}>
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold">
           <Link to="/" className={`${isDarkMode ? 'text-white hover:text-amber-400' : 'text-gray-800 hover:text-amber-600'} transition-colors duration-300`}>
-            <span className={isDarkMode ? 'text-amber-400' : 'text-amber-600'}>Mood</span> G <span className={isDarkMode ? 'text-amber-400' : 'text-amber-600'}>Food</span>
+            <span className={isDarkMode ? 'text-amber-400 font-beau-rivage-regular text-xl font-extrabold' : 'text-amber-600 font-beau-rivage-regular text-xl font-bold'}>MOOD</span> G <span className={isDarkMode ? 'text-amber-400 font-beau-rivage-regular text-xl font-bold' : 'text-amber-600 font-beau-rivage-regular text-xl font-bold'}>FOOD</span>
           </Link>
         </div>
 

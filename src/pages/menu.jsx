@@ -18,11 +18,11 @@ function Menu() {
   }, [controls, inView]);
   
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} px-4 transition-colors duration-300`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-700 ' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} px-4 transition-colors duration-300`}>
       <div className="pt-10">
         {/* White Box with Title and Images */}
         <div className="mt-10 p-4">
-          <div className={`text-lg font-semibold ${isDarkMode ? 'text-amber-500' : 'text-amber-600'} mb-4 sm:ml-5 xl:ml-11 text-outline`}>Hey, What's your Food mood?</div>
+          <div className={`text-lg font-semibold ${isDarkMode ? 'text-amber-600 bg-whit e/80' : 'text-amber-600'} mb-4 lg:ml-6  bg-gr ay-800 rounded-lg  w-fit pl-2 pr-10`}>Hey, your <span className="text-white/80 font-beau-rivage-regular text-3xl font-bold ">Mood  <span className="text-amber-600 font-poppins-regular text-xl"> Got </span> Food?</span> </div>
 
           <div className="overflow-x-auto">
             <div className="flex justify-around">
@@ -66,14 +66,14 @@ function Menu() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center min-w-[100px] max-w-[100px]"
+                  className={`flex flex-col items-center min-w-[100px] max-w-[150px] ${isDarkMode ?'bg-none':'bg-gray-800 text-white'} rounded-xl p-2`}
                 >
                   <img
                     src={item.src}
                     alt={item.lines}
-                    className={`w-20 h-20 object-cover rounded-full mt-4 hover:drop-shadow-md ${isDarkMode ? 'hover:drop-shadow-amber-500' : 'hover:drop-shadow-amber-600'} hover:scale-130 transition-transform duration-400`}
+                    className={`w-20 h-20 object-cover rounded-full mt-4 hover:drop-shadow-md  ${isDarkMode ? 'hover:drop-shadow-amber-500' : 'hover:drop-shadow-amber-600'} hover:scale-130 transition-transform duration-400`}
                   />
-                  <p className={`mt-2 text-sm text-center text-outline font-medium ${isDarkMode ? 'text-[#f2d49c]' : 'text-amber-600'}`}>{item.lines}</p>
+                  <p className={`mt-2 text-sm text-center   ${isDarkMode ? 'text-[#f2d49c]' : ' font-bold font-poppins-regular'}`}>{item.lines}</p>
                 </div>
               ))}
             </div>
@@ -213,9 +213,9 @@ function Menu() {
                 initial="hidden"
                 animate={controls}
                 variants={variants}
-                className={`${isDarkMode ? 'text-[#f2d49c]' : 'text-amber-600'} mb-10 xl:text-[15px] text-xs overflow-hidden`}
+                className={`${isDarkMode ? 'text-amber-700 bg-white/80'  : 'text-amber-600'} mb-10 xl:text-[15px] bg-gray-800 rounded-xl p-2 text-xs overflow-hidden`}
               >
-                <div className="w-[15rem] h-[10rem] rounded-full overflow-hidden mx-auto">
+                <div className="w-[15rem] h-[10rem] rounded-xl overflow-hidden mx-auto">
                   <motion.img
                     className="w-full h-full object-cover cursor-pointer"
                     src={item.src}
@@ -226,7 +226,7 @@ function Menu() {
                 </div>
           
                 <div className="cursor-pointer rounded-full -translate-y-4">
-                  <a className={`block -translate-y-9 ${isDarkMode ? 'text-white' : 'text-gray-800'} font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl`}>
+                  <a className={`block -translate-y-9 ${isDarkMode ? 'text-white' : 'text-gray-300'} font-extrabold text-sm w-full text-outline xl:text-2xl text-center lg:text-xl md:text-xl`}>
                     {item.lines[0]}
                   </a>
           
