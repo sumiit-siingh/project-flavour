@@ -2,27 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 @import "tailwindcss";
-@layer base{
+
+@layer base {
   *,
   *::before,
-  *::after{
+  *::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
   }
-  *{
+  * {
     scrollbar-width: none;
   }
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
-}.text-outline {
+}
+
+.text-outline {
   text-shadow: 2px 2px 4px rgb(0, 0, 0), -2px -2px 4px rgba(0, 0, 0, 0.993);
 }
+
 @theme{
   --font-chicle-regular:Chicle,"sans-serif"
-
-  
 }
 
 @theme{

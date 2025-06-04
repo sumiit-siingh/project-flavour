@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaUserCircle, FaSun, FaMoon } from "react-icons/fa";
@@ -122,17 +124,15 @@ const Navbar = () => {
 
       {/* Side Panel Menu */}
       <div
-        className={`fixed top-[72px] right-0 w-[300px] h-[calc(100vh-72px)] ${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-gradient-to-r from-gray-100 to-gray-200'} transform transition-all duration-300 ease-in-out z-[55] rounded-tl-xl ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-[72px] right-0 w-[300px] h-[calc(100vh-72px)] ${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-gradient-to-r from-gray-100 to-gray-200'} transform transition-all duration-300 ease-in-out z-[55] rounded-tl-xl ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="px-4 pt-6 pb-8 space-y-6 h-full overflow-y-auto">
           {/* Theme Toggle for Mobile */}
           <button
             onClick={toggleTheme}
-            className={`w-full p-3 rounded-xl flex items-center justify-center gap-2 ${
-              isDarkMode ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-800'
-            } transition-colors duration-300`}
+            className={`w-full p-3 rounded-xl flex items-center justify-center gap-2 ${isDarkMode ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-800'
+              } transition-colors duration-300`}
           >
             {isDarkMode ? (
               <>
@@ -148,7 +148,7 @@ const Navbar = () => {
           </button>
 
           {isAuthenticated && (
-            <div 
+            <div
               onClick={() => {
                 navigate('/profile');
                 toggleMenu();
@@ -172,10 +172,9 @@ const Navbar = () => {
                   to={`/${getPath(item)}`}
                   onClick={toggleMenu}
                   className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${
-                      isActive
-                        ? `${isDarkMode ? 'bg-amber-400 text-gray-900' : 'bg-amber-600 text-white'} font-semibold`
-                        : isDarkMode
+                    `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 ${isActive
+                      ? `${isDarkMode ? 'bg-amber-400 text-gray-900' : 'bg-amber-600 text-white'} font-semibold`
+                      : isDarkMode
                         ? 'text-white hover:bg-gray-800'
                         : 'text-gray-800 hover:bg-gray-200'
                     }`

@@ -84,102 +84,11 @@ function Homepage() {
             </div>
           </div>
 
-          {/* Benefits Section */}
-          {/* <div className="mb-12">
-            <h2 className={`text-2xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Benefits</h2>
-            <ul className={`space-y-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              {benefits.map((benefit, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <span className="text-green-500">✓</span>
-                  {benefit}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mb-12">
-            <div className={`text-2xl font-light mb-6 ${isDarkMode ? 'text-[#ffcc70]' : 'text-yellow-600'}`}>
-              Total order : <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>$24.30</span>
-            </div>
-
-            <div className="flex items-center gap-6 flex-wrap">
-              <div className={`flex items-center border ${isDarkMode ? 'border-gray-300' : 'border-gray-400'} rounded-full px-4 py-2`}>
-                <span
-                  onClick={decrement}
-                  className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} cursor-pointer`}
-                >
-                  ▼
-                </span>
-                <span className={`mx-4 text-xl font-medium ${isDarkMode ? 'text-white/90' : 'text-gray-800'}`}>
-                  {count}
-                </span>
-                <span
-                  onClick={increment}
-                  className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} cursor-pointer`}
-                >
-                  ▲
-                </span>
-              </div>
-
-              <div className={`${isDarkMode ? 'bg-[#ffcc70]' : 'bg-yellow-500'} font-bold px-8 py-3 rounded-full cursor-pointer flex items-center gap-2`}>
-                <span className={`${isDarkMode ? 'bg-[#ffcc70]' : 'bg-yellow-500'} w-6 h-6 rounded-full flex items-center justify-center text-2xl`}>
-                  🛒
-                </span>
-                Buy Now
-              </div>
-            </div>
-          </div> */}
-
-          {/* Food Carousel */}
-          {/* <div className="flex gap-4 items-center flex-wrap">
-            <div
-              className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white' : 'bg-gray-800'} shadow-md flex items-center justify-center cursor-pointer`}
-              onClick={handlePrev}
-            >
-              ◀
-            </div> */}
-
-            {/* <div className="flex gap-4 transition-all duration-300 ease-in-out overflow-x-auto">
-              {visibleItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`${item.color} px-6 py-4 rounded-full text-center min-w-[120px]`}
-                >
-                  <div>{item.name}</div>
-                  <div className="font-bold">{item.price}</div>
-                </div>
-              ))}
-            </div> */}
-
-            {/* <div
-              className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white' : 'bg-gray-800'} shadow-md flex items-center justify-center cursor-pointer`}
-              onClick={handleNext}
-            >
-              ▶
-            </div> */}
-          </div>
         </div>
-
-        {/* Right Section */}
-        {/* <div className="relative flex justify-center items-center overflow-visible"> */}
-        {/* Background Image */}
-        {/* <img
-            src="https://res.cloudinary.com/dpwqggym0/image/upload/v1744543029/istockphoto-2074939734-612x612-removebg-preview_zxqsdx.png"
-            alt="background"
-            className="absolute right-[-0%] sm:right-[-60%] md:right-[-50%] top-0 scale-[2.1] sm:scale-[1.7] md:scale-[1.5] z-0 opacity-100"
-          /> */}
-
-        {/* Front Image */}
-        {/* <div className="z-10 flex items-center justify-center">
-            <img
-              src="https://res.cloudinary.com/dpwqggym0/image/upload/v1745103077/erasebg-transformed_mwsgcy.png"
-              alt="Salad"
-              className="h-[600px] sm:h-[600px] md:h-[500px] lg:h-[600px] max-w-full object-contain"
-            />
-          </div> */}
-        {/* </div> */}
       </div>
-    // </div>
+
+    </div>
+
   );
 }
 
