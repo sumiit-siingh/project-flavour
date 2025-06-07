@@ -67,7 +67,7 @@ function Homepage() {
             favourite foods
           </div>
           <div className={`text-base max-w-md mb-10 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            Experience the perfect blend of taste and convenience with our premium food delivery service. Fresh ingredients, expert chefs, and lightning-fast delivery.
+            Experience the perfect blend of taste and convenience with our premium food delivery service. Fresh ingredients, expert chefs, & lightning-fast delivery.
           </div>
 
           {/* Services Section */}
