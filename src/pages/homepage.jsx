@@ -39,14 +39,15 @@ function Homepage() {
         className={`absolute inset-0 w-full h-full object-cover ${isDarkMode ? 'opacity-30' : 'opacity-70'} blur-[2px]`}
       />
 
+      {/* <div className="w-full md:w-[600px]  h-auto md:h-[600px] flex flex-wrap gap-10 bg-white/40 dark:bg-white/40 backdrop-blur-2xl rounded-4xl p-10"> */}
       {/* Foreground Container */}
-      <div className="relative z-10 w-[70%] flex justify-center items-center">
-        <div className="w-full md:w-[600px] h-auto md:h-[600px] flex flex-wrap gap-10 bg-white/40 dark:bg-white/40 backdrop-blur-2xl rounded-4xl p-10">
+      {/* <div className="relative z-10 w-[90%] md:w-[70%] flex justify-center items-center px-4"> */}
+        <div className=" w-[90%] max-w-[600px] h-auto md:h-[600px] flex flex-wrap gap-10 bg-white/40 dark:bg-white/40 backdrop-blur-2xl rounded-4xl p-5 md:p-10 overflow-hidden">
 
           {/* Text Section */}
           <div className="flex-1 min-w-[280px] flex flex-col md:items-center justify-center gap-6">
             <div className="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
-              <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              <h1 className={`text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
                 Your Delicious Mood Food is waiting
               </h1>
               <p className={`text-base max-w-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-serif`}>
@@ -68,12 +69,12 @@ function Homepage() {
             <img
               src="https://res.cloudinary.com/dq829orud/image/upload/v1749020555/istockphoto-1348318884-612x612-removebg-preview_pqetqq.png"
               alt="Food"
-              className="w-full max-w-[300px] md:max-w-[400px] lg:max-w-[500px] h-auto object-contain"
+              className="w-[180px] sm:w-[220px] md:w-[300px] lg:w-[400px] max-h-[200px] md:max-h-full h-auto object-contain"
             />
           </div>
 
         </div>
-      </div>
+      {/* </div> */}
 
     </div>
 
