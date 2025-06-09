@@ -33,19 +33,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`${isDarkMode ? 'bg-gradient-to-r from-gray-700 via-gray-900 to-black' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} shadow-lg p-4 fixed top-0 left-0 right-0 z-50 transition-colors duration-300 `}>
+    <nav className={`${isDarkMode ? 'backdrop-blur-3xl' : ' backdrop-blur-3xl'} shadow-lg p-4 fixed top-0 left-0 right-0 z-50 transition-colors duration-300 `}>
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold">
-          <Link to="/" className={`${isDarkMode ? 'text-white hover:text-amber-400' : 'text-gray-800 hover:text-amber-600'} transition-colors duration-300`}>
-            <span className={isDarkMode ? 'text-amber-400 font-beau-rivage-regular text-xl font-extrabold' : 'text-amber-600 font-beau-rivage-regular text-xl font-bold'}>MOOD</span> G <span className={isDarkMode ? 'text-amber-400 font-beau-rivage-regular text-xl font-bold' : 'text-amber-600 font-beau-rivage-regular text-xl font-bold'}>FOOD</span>
-          </Link>
+          <button onClick={toggleTheme}> <Link  className={`${isDarkMode ? 'text-white hover:text-amber-400' : 'text-gray-800 '} transition-colors duration-300`}>
+            <span className={isDarkMode ? 'text-amber-400 font-beau-rivage-regular text-xl font-extrabold' : ' font-beau-rivage-regular text-xl  text-black'}>MOOD</span> G <span className={isDarkMode ? 'text-amber-400 font-beau-rivage-regular text-xl font-bold' : ' font-beau-rivage-regular text-xl text-black font-bold'}>FOOD</span>
+          </Link></button>
+
         </div>
+       
 
         {/* Welcome Message */}
         {isAuthenticated && (
           <div className={`${isDarkMode ? 'text-white' : 'text-gray-800'} text-lg font-medium`}>
-            Welcome, <span className={isDarkMode ? 'text-amber-400' : 'text-amber-600'}>{capitalizeFirstLetter(user.name)}</span>
+            Welcome, <span className={isDarkMode ? 'text-amber-400' : 'text-[#450920]'}>{capitalizeFirstLetter(user.name)}</span>
           </div>
         )}
 
@@ -129,23 +131,7 @@ const Navbar = () => {
       >
         <div className="px-4 pt-6 pb-8 space-y-6 h-full overflow-y-auto">
           {/* Theme Toggle for Mobile */}
-          <button
-            onClick={toggleTheme}
-            className={`w-full p-3 rounded-xl flex items-center justify-center gap-2 ${isDarkMode ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-800'
-              } transition-colors duration-300`}
-          >
-            {isDarkMode ? (
-              <>
-                <FaSun className="text-xl" />
-                <span>Light Mode</span>
-              </>
-            ) : (
-              <>
-                <FaMoon className="text-xl" />
-                <span>Dark Mode</span>
-              </>
-            )}
-          </button>
+
 
           {isAuthenticated && (
             <div

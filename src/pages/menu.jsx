@@ -18,11 +18,11 @@ function Menu() {
   }, [controls, inView]);
   
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-700 ' : 'bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300'} px-4 transition-colors duration-300`}>
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-700 ' : 'bg-[#f9dbbd]'} px-4 transition-colors duration-300`}>
       <div className="pt-10">
         {/* White Box with Title and Images */}
         <div className="mt-10 p-4">
-          <div className={`text-lg font-semibold ${isDarkMode ? 'text-amber-600 bg-whit e/80' : 'text-amber-600'} mb-4 lg:ml-6  bg-gr ay-800 rounded-lg  w-fit pl-2 pr-10`}>Hey, your <span className="text-white/80 font-beau-rivage-regular text-3xl font-bold ">Mood  <span className="text-amber-600 font-poppins-regular text-xl"> Got </span> Food?</span> </div>
+          <div className={`text-lg font-semibold ${isDarkMode ? 'text-white ' : 'text-black'} mb-4 lg:ml-6  bg-gr ay-800 rounded-lg  w-fit pl-2 pr-10`}>Hey, your <span className=" font-beau-rivage-regular text-[#450920] text-3xl font-bold ">Mood  <span className="text-amber-600 font-poppins-regular text-xl"> Got </span> Food?</span> </div>
 
           <div className="overflow-x-auto">
             <div className="flex justify-around">
@@ -82,7 +82,7 @@ function Menu() {
       </div>
 
       {/* Below the image and mood text */}
-      <div className={`sm:ml-5 md:ml-7 xl:ml-14 mt-10 font-semibold text-xl ${isDarkMode ? 'text-amber-500' : 'text-amber-600'} text-outline`}>
+      <div className={`sm:ml-5 md:ml-7 xl:ml-14 mt-10 font-semibold text-xl ${isDarkMode ? 'text-white' : 'text-black'} `}>
         Top discounts for you
       </div>
       <div>

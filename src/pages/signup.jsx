@@ -42,9 +42,9 @@ function Signup() {
             <img
                 src="https://res.cloudinary.com/dq829orud/image/upload/v1744634683/top-view-delicious-meat-soup-with-potatoes-greens-dark-blue-desk_xh01bu.jpg"
                 alt="Soup"
-                className={`absolute inset-0 w-full h-full object-cover ${isDarkMode ? 'opacity-20' : 'opacity-10'} blur-[2px]`}
+                className={`absolute inset-0 w-full h-full object-cover ${isDarkMode ? '' : ''} blur-[5px]`}
             />
-            <div className={`relative w-[90%] max-w-[400px] aspect-square ${isDarkMode ? 'bg-[#0a0909]' : 'bg-white'} rounded-2xl border border-amber-400 shadow-2xl overflow-hidden transition-colors duration-300`}>
+            <div className={`relative w-[90%] max-w-[400px] aspect-square ${isDarkMode ? 'bg-[#0a0909]' : 'bg-white'} rounded-4xl border border-amber-400 shadow-2xl overflow-hidden transition-colors duration-300`}>
                 <div className="flex h-full">
                     {/* Image Section */}
                     <div className="hidden md:block w-1/2 h-full">
@@ -56,9 +56,10 @@ function Signup() {
                     </div>
 
                     {/* Form Section */}
-                    <div className={`w-full md:w-1/2 p-3 md:p-4 ${isDarkMode ? 'bg-[#151515]' : 'bg-gray-50'} flex items-center transition-colors duration-300`}>
+                    <div className={`w-full md:w-1/2 p-3 md:p-4 ${isDarkMode ? 'bg-[#151515]' : 'bg-gray-50'} flex items-center transition-colors duration-300 backdrop-blur-3xl`}>
+                        <div className={`w-full md:w-1/2 p-3 md:p-4 ${isDarkMode ? 'bg-[#151515]' : 'bg-gray-50'} flex items-center transition-colors duration-300`}>
                         <form onSubmit={handleSignup} className='w-full space-y-4'>
-                            <div className='text-center text-base md:text-lg font-bold text-amber-500 transition-all duration-300 hover:scale-105'>
+                            <div className='text-center text-base md:text-lg font-bold text-black transition-all duration-300 hover:scale-105'>
                                 Create Account
                             </div>
                             
@@ -68,7 +69,7 @@ function Signup() {
 
                             <div className='space-y-2'>
                                 <div className='w-[90%] mx-auto'>
-                                    <label className='text-amber-400 text-xs block text-left mb-1'>Name</label>
+                                    <label className='text-black text-xs block text-left mb-1'>Name</label>
                                     <input 
                                         type="text"
                                         value={name}
@@ -82,7 +83,7 @@ function Signup() {
                             
                             <div className='space-y-2'>
                                 <div className='w-[90%] mx-auto'>
-                                    <label className='text-amber-400 text-xs block text-left mb-1'>Email</label>
+                                    <label className='text-am ber-400 text-xs block text-left mb-1'>Email</label>
                                     <input 
                                         type="email"
                                         value={email}
@@ -96,7 +97,7 @@ function Signup() {
 
                             <div className='space-y-2'>
                                 <div className='w-[90%] mx-auto'>
-                                    <label className='text-amber-400 text-xs block text-left mb-1'>Password</label>
+                                    <label className='text-am ber-400 text-xs block text-left mb-1'>Password</label>
                                     <div className="relative">
                                         <input
                                             type={passwordVisible ? 'text' : 'password'}
@@ -154,6 +155,7 @@ function Signup() {
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     );
